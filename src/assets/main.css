@@ -1,9 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
 
-@import "./metronic/css/styles.css";
-@import "./metronic/css/demos/demo1.css";
+:root {
+  --color-primary: #f3640b;
+  --color-secondary: #00897B;
+  --color-third: #003f91;
+  --color-hover: #035e5e;
+}
+
+.text-primary {
+  color: var(--color-primary) !important;
+}
+
+.text-secondary {
+  color: var(--color-secondary) !important;
+}
+.text-secondary:hover {
+  color: var(--color-hover) !important;
+}
+
+.text-third {
+  color: var(--color-third) !important;
+}
+
+.text-hover {
+  color: var(--color-hover) !important;
+}
+
+@import './metronic/css/styles.css';
+@import './metronic/css/demos/demo1.css';
 
 /* Keenicons */
-@import "./metronic/vendors/keenicons/duotone/style.css";
-@import "./metronic/vendors/keenicons/filled/style.css";
-@import "./metronic/vendors/keenicons/outline/style.css";
-@import "./metronic/vendors/keenicons/solid/style.css";
+@import './metronic/vendors/keenicons/duotone/style.css';
+@import './metronic/vendors/keenicons/filled/style.css';
+@import './metronic/vendors/keenicons/outline/style.css';
+@import './metronic/vendors/keenicons/solid/style.css';

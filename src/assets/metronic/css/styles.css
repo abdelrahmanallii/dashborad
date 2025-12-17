@@ -15,3 +15,8 @@
 
 /* Demos */
 @import './demos/demo1.css';
+
+/* Cairo Font - Global Application */
+body, * {
+  font-family: 'Cairo', ui-sans-serif, system-ui, sans-serif;
+}

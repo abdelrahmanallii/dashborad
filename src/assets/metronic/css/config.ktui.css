@@ -59,13 +59,13 @@
 
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
-  
+
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  
+
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
-  
+
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
 
@@ -95,4 +95,7 @@
   --text-2sm--line-height: calc(1.075 / 0.8125);
   --text-2xs: 0.6875rem;
   --text-2xs--line-height: calc(0.825 / 0.6875);
+
+  /** Cairo Font Family **/
+  --font-sans: 'Cairo', ui-sans-serif, system-ui, sans-serif;
 }
