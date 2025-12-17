@@ -1,0 +1,32 @@
+<!doctype html>
+<html class="h-full light" data-kt-theme="true" lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <link href="/vite.svg" rel="icon" type="image/svg+xml" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Vite + Vue</title>
+  </head>
+  <body
+    class="antialiased flex h-full text-base text-foreground bg-background demo1 kt-sidebar-fixed kt-header-fixed dark:bg-coal-500"
+  >
+    <script>
+      const defaultThemeMode = 'light' // light|dark|system
+      let themeMode
+      if (document.documentElement) {
+        if (localStorage.getItem('theme')) {
+          themeMode = localStorage.getItem('theme')
+        } else if (document.documentElement.hasAttribute('data-kt-theme-mode')) {
+          themeMode = document.documentElement.getAttribute('data-kt-theme-mode')
+        } else {
+          themeMode = defaultThemeMode
+        }
+        if (themeMode === 'system') {
+          themeMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        }
+        document.documentElement.classList.add(themeMode)
+      }
+    </script>
+    <div id="app"></div>
+    <script src="/src/main.js" type="module"></script>
+  </body>
+</html>
