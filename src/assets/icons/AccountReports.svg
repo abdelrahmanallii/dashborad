@@ -1,0 +1,12 @@
+<svg id="Accounts_Report" data-name="Accounts Report" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <path id="Path_422" data-name="Path 422" d="M0,0H24V24H0Z" fill="none"/>
+  <path id="Path_423" data-name="Path 423" d="M4.536,19.341v-.824a1.2,1.2,0,0,1,.52-1.027,13.81,13.81,0,0,1,7.089-1.953c.038,0,.812-.013.85,0v-2.5S12.438,13,12.146,13a16.33,16.33,0,0,0-8.383,2.308A3.706,3.706,0,0,0,2,18.517v3.361l11,.074c-.136-.875-.417-2.531-.482-2.61Z" transform="translate(-1.219 -0.732)" fill="#6e6b7b"/>
+  <path id="Path_424" data-name="Path 424" d="M11.073,14.146A5.073,5.073,0,1,0,6,9.073,5.072,5.072,0,0,0,11.073,14.146Zm0-7.609A2.536,2.536,0,1,1,8.536,9.073,2.544,2.544,0,0,1,11.073,6.536Z" transform="translate(-0.146 -3.146)" fill="#6e6b7b"/>
+  <g id="Group_350" data-name="Group 350" transform="translate(8 9.414)">
+    <path id="Path_453" data-name="Path 453" d="M13.036,2.912,12.124,2l-.912.912L10.3,2l-.912.912L8.474,2l-.912.912L6.65,2l-.912.912L4.825,2v8.516H3v1.825a1.822,1.822,0,0,0,1.825,1.825h7.3a1.822,1.822,0,0,0,1.825-1.825V2ZM10.3,12.949H4.825a.61.61,0,0,1-.608-.608v-.608H10.3Zm2.433-.608a.608.608,0,0,1-1.217,0V10.516H6.041V3.825h6.691Z" transform="translate(1)" fill="#6e6b7b"/>
+    <rect id="Rectangle_189" data-name="Rectangle 189" width="4" height="1" transform="translate(6.295 7.022)" fill="#6e6b7b"/>
+    <rect id="Rectangle_200" data-name="Rectangle 200" width="4" height="1" transform="translate(6.295 4.787)" fill="#6e6b7b"/>
+    <rect id="Rectangle_202" data-name="Rectangle 202" width="1" height="1" transform="translate(11.771 4.787)" fill="#6e6b7b"/>
+    <rect id="Rectangle_203" data-name="Rectangle 203" width="1" height="1" transform="translate(11.771 7.022)" fill="#6e6b7b"/>
+  </g>
+</svg>

@@ -1,313 +1,355 @@
-<script setup lang="ts">
-import { RouterLink } from 'vue-router'
-import { formatCurrency } from '@/utility/currency'
-
-// يمكنك تغيير البلد هنا أو جعله متغير
-const currentCountry = 'EG'
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <div class="flex flex-wrap justify-center items-center gap-3">
-    <div class="kt-card w-[250px] h-[220px] pt-3">
-      <div class="kt-card-header min-h-0 border-none">
-        <div class="kt-card-heading">
-          <h2 class="kt-card-title text-lg font-extrabold text-primary">معلومات شخصية</h2>
-        </div>
-      </div>
-      <div class="kt-card-content py-1">
-        <div
-          class="flex items-center justify-between gap-2 py-2 border-b border-border border-soild last:border-none"
-        >
-          <div class="flex items-center gap-3">
-            <div>
-              <a href="#" class="text-sm font-medium text-secondary">اسم الشركة </a>
-            </div>
-          </div>
-          <span class="text-sm font-medium text-primary">Demo Test</span>
-        </div>
-        <div
-          class="flex items-center justify-between gap-2 py-2 border-b border-border border-soild last:border-none"
-        >
-          <div class="flex items-center gap-3">
-            <div>
-              <a href="#" class="text-sm font-medium text-secondary">إسم المسؤل </a>
-            </div>
-          </div>
-          <span class="text-sm font-medium text-primary">Ahmed</span>
-        </div>
-      </div>
-      <div class="kt-card-footer border-none justify-center">
-        <button
-          class="kt-link text-md border-2 rounded-full border-orange-500 text-black hover:bg-orange-50 transition-colors px-8 py-1"
-        >
-          تعديل
-        </button>
+  <!-- <div class="kt-card px-5 py-1 w-screen shadow-none">
+    <div class="kt-card-header w-full py-2 min-h-0 border-none">
+      <div class="kt-card-heading">
+        <h2 class="kt-card-title text-third">المنتجات</h2>
       </div>
     </div>
 
-    <div class="kt-card pt-3">
-      <div class="kt-card-header min-h-0 border-none">
-        <div class="kt-card-heading">
-          <h2 class="kt-card-title text-lg font-extrabold text-primary">الرصيد</h2>
+    <div class="grid grid-cols-5">
+      <div class="card1">
+        <div class="kt-card-header min-h-0 border-none">
+          <div class="kt-card-heading">
+            <h2 class="kt-card-title text-primary">اسم المنتج</h2>
+          </div>
+        </div>
+        <div class="kt-card px-5 py-1 border-none shadow-none">
+          <div class="flex w-fit py-2">
+            <div class="flex items-center gap-3">
+              <div>
+                <a
+                  href="#"
+                  class="text-sm font-medium text-foreground hover:text-primary whitespace-nowrap"
+                  >آيفون 15 برو - 8 جيجا رام - 256 جيجا - أسود</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="flex w-fit gap-2 py-2">
+            <div class="flex items-center gap-3">
+              <div>
+                <a
+                  href="#"
+                  class="text-sm font-medium text-foreground hover:text-primary whitespace-nowrap"
+                  >سامسونج جالاكسي إس 24 - 12 جيجا رام - 512 جيجا - أزرق</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="flex w-fit gap-2 py-2">
+            <div class="flex items-center gap-3">
+              <div>
+                <a
+                  href="#"
+                  class="text-sm font-medium text-foreground hover:text-primary whitespace-nowrap"
+                  >شاومي ريدمي نوت 13 - 6 جيجا رام - 128 جيجا - أحمر</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="flex w-fit gap-2 py-2">
+            <div class="flex items-center gap-3">
+              <div>
+                <a
+                  href="#"
+                  class="text-sm font-medium text-foreground hover:text-primary whitespace-nowrap"
+                  >ون بلس 12 - 16 جيجا رام - 1 تيرا - أبيض</a
+                >
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="kt-card-content py-1">
-        <div
-          class="flex items-center justify-between gap-2 py-2 border-b border-border border-soild last:border-none"
-        >
-          <div class="flex items-center gap-3">
-            <div>
-              <a href="#" class="text-sm font-medium text-secondary">رصيد قيد التحصيل </a>
-            </div>
+
+      <div class="card card2 col-span-1 flex flex-col items-center">
+        <div class="kt-card-header min-h-0 border-none">
+          <div class="kt-card-heading">
+            <h2 class="kt-card-title text-primary">SKU</h2>
           </div>
-          <span class="text-sm font-medium text-primary">{{
-            formatCurrency(19000, currentCountry)
-          }}</span>
         </div>
-        <div
-          class="flex items-center justify-between gap-2 py-2 border-b border-border border-soild last:border-none"
-        >
-          <div class="flex items-center gap-3">
-            <div>
-              <a href="#" class="text-sm font-medium text-secondary">رصيد مسدد من قبل </a>
+        <div class="kt-card px-5 py-1 border-none shadow-none space-y-1.5">
+          <div class="flex w-fit py-2">
+            <div class="flex items-center gap-3">
+              <div>
+                <p class="text-sm font-medium text-foreground">VU000330</p>
+              </div>
             </div>
           </div>
-          <span class="text-sm font-medium text-primary">{{
-            formatCurrency(0, currentCountry)
-          }}</span>
-        </div>
-        <div
-          class="flex items-center justify-between gap-2 py-2 border-b border-border border-soild last:border-none"
-        >
-          <div class="flex items-center gap-3">
-            <div>
-              <a href="#" class="text-sm font-medium text-secondary">رصيد متاح للتحصيل </a>
+          <div class="flex w-fit gap-2 py-2">
+            <div class="flex items-center gap-3">
+              <div>
+                <p class="text-sm font-medium text-foreground">VU000330</p>
+              </div>
             </div>
           </div>
-          <span class="text-sm font-medium text-primary">{{
-            formatCurrency(17793311.82, currentCountry)
-          }}</span>
+          <div class="flex w-fit gap-2 py-2">
+            <div class="flex items-center gap-3">
+              <div>
+                <p class="text-sm font-medium text-foreground">VU000330</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex w-fit gap-2 py-2">
+            <div class="flex items-center gap-3">
+              <div>
+                <p class="text-sm font-medium text-foreground">VU000330</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="kt-card-footer border-none justify-center">
-        <button
-          class="kt-link text-md border-2 rounded-full border-orange-500 text-black hover:bg-orange-50 transition-colors px-8 py-1"
-        >
-          سحب
-        </button>
+
+      <div class="card card3 col-span-1 flex flex-col items-center">
+        <div class="kt-card-header min-h-0 border-none">
+          <div class="kt-card-heading">
+            <h2 class="kt-card-title text-primary">عدد المشاهدات</h2>
+          </div>
+        </div>
+        <div class="kt-card px-5 py-1 border-none shadow-none space-y-1.5">
+          <div class="flex w-fit py-2">
+            <div class="flex items-center gap-3">
+              <div>
+                <p class="text-sm font-medium text-foreground">999</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex w-fit gap-2 py-2">
+            <div class="flex items-center gap-3">
+              <div>
+                <p class="text-sm font-medium text-foreground">999</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex w-fit gap-2 py-2">
+            <div class="flex items-center gap-3">
+              <div>
+                <p class="text-sm font-medium text-foreground">999</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex w-fit gap-2 py-2">
+            <div class="flex items-center gap-3">
+              <div>
+                <p class="text-sm font-medium text-foreground">999</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card4 col-span-1 flex flex-col items-center">
+        <div class="kt-card-header min-h-0 border-none">
+          <div class="kt-card-heading">
+            <h2 class="kt-card-title text-primary">تكلفة عدد المشاهدات</h2>
+          </div>
+        </div>
+        <div class="kt-card px-5 py-1 border-none shadow-none space-y-1.5">
+          <div class="flex w-fit py-2">
+            <div class="flex items-center gap-3">
+              <div>
+                <p class="text-sm font-medium text-foreground">45.75</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex w-fit gap-2 py-2">
+            <div class="flex items-center gap-3">
+              <div>
+                <p class="text-sm font-medium text-foreground">32.50</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex w-fit gap-2 py-2">
+            <div class="flex items-center gap-3">
+              <div>
+                <p class="text-sm font-medium text-foreground">67.25</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex w-fit gap-2 py-2">
+            <div class="flex items-center gap-3">
+              <div>
+                <p class="text-sm font-medium text-foreground">89.90</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card5 col-span-1 flex flex-col items-center">
+        <div class="kt-card-header min-h-0 border-none">
+          <div class="kt-card-heading">
+            <h2 class="kt-card-title text-primary">عدد مرات إضافة فى السلة</h2>
+          </div>
+        </div>
+        <div class="kt-card px-5 py-1 border-none shadow-none space-y-1.5">
+          <div class="flex w-fit py-2">
+            <div class="flex items-center gap-3">
+              <div>
+                <p class="text-sm font-medium text-foreground">5</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex w-fit gap-2 py-2">
+            <div class="flex items-center gap-3">
+              <div>
+                <p class="text-sm font-medium text-foreground">3</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex w-fit gap-2 py-2">
+            <div class="flex items-center gap-3">
+              <div>
+                <p class="text-sm font-medium text-foreground">7</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex w-fit gap-2 py-2">
+            <div class="flex items-center gap-3">
+              <div>
+                <p class="text-sm font-medium text-foreground">2</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </div> -->
 
-    <div class="kt-card w-[250px] pt-3">
-      <div class="kt-card-header min-h-0 border-none">
-        <div class="kt-card-heading">
-          <h2 class="kt-card-title text-lg font-extrabold text-primary">منتجاتك</h2>
-        </div>
+  <div class="grid w-full space-y-5">
+    <div class="kt-card">
+      <div class="kt-card-header min-h-16">
+        <h2 class="text-third text-lg">المنتجات</h2>
       </div>
-      <div class="kt-card-content py-1">
-        <div
-          class="flex items-center justify-between gap-2 py-2 border-b border-border border-soild last:border-none"
-        >
-          <div class="flex items-center gap-3">
-            <div>
-              <a href="#" class="text-sm font-medium text-secondary">المنتجات المعروضة حالياً</a>
-            </div>
-          </div>
-          <span class="text-sm font-medium text-primary">Ahmed</span>
+      <div
+        id="kt_datatable_basic"
+        class="kt-card-table"
+        data-kt-datatable="true"
+        data-kt-datatable-page-size="5"
+        data-kt-datatable-state-save="true"
+      >
+        <div class="kt-table-wrapper">
+          <table class="kt-table" data-kt-datatable-table="true">
+            <thead>
+              <tr>
+                <th scope="col" class="w-30" data-kt-datatable-column="label">
+                  <span class="kt-table-col"
+                    ><span class="kt-table-col-label text-primary">اسم المنتج</span></span
+                  >
+                </th>
+                <th scope="col" class="w-20" data-kt-datatable-column="method">
+                  <span class="kt-table-col"
+                    ><span class="kt-table-col-label text-primary">SKU</span></span
+                  >
+                </th>
+                <th scope="col" class="w-24" data-kt-datatable-column="status">
+                  <span class="kt-table-col"
+                    ><span class="kt-table-col-label text-primary">عدد المشاهدات</span></span
+                  >
+                </th>
+                <th scope="col" class="w-24" data-kt-datatable-column="lastSession">
+                  <span class="kt-table-col"
+                    ><span class="kt-table-col-label text-primary">تكلفة عدد المشاهدات</span></span
+                  >
+                </th>
+                <th scope="col" class="w-24" data-kt-datatable-column="lastSession">
+                  <span class="kt-table-col"
+                    ><span class="kt-table-col-label text-primary"
+                      >عدد مرات إضافة فى السلة</span
+                    ></span
+                  >
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <a
+                    href="#"
+                    class="text-sm font-medium text-foreground hover:text-primary whitespace-nowrap"
+                    >آيفون 15 برو - 8 جيجا رام - 256 جيجا - أسود</a
+                  >
+                </td>
+                <td>
+                  <p class="text-sm font-medium text-foreground">VU000330</p>
+                </td>
+                <td>
+                  <p class="text-sm font-medium text-foreground">999</p>
+                </td>
+                <td>
+                  <p class="text-sm font-medium text-foreground">45.75</p>
+                </td>
+                <td>
+                  <p class="text-sm font-medium text-foreground">5</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a
+                    href="#"
+                    class="text-sm font-medium text-foreground hover:text-primary whitespace-nowrap"
+                    >سامسونج جالاكسي إس 24 - 12 جيجا رام - 512 جيجا - أزرق</a
+                  >
+                </td>
+                <td>
+                  <p class="text-sm font-medium text-foreground">VU000330</p>
+                </td>
+                <td>
+                  <p class="text-sm font-medium text-foreground">999</p>
+                </td>
+                <td>
+                  <p class="text-sm font-medium text-foreground">32.50</p>
+                </td>
+                <td>
+                  <p class="text-sm font-medium text-foreground">3</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a
+                    href="#"
+                    class="text-sm font-medium text-foreground hover:text-primary whitespace-nowrap"
+                    >شاومي ريدمي نوت 13 - 6 جيجا رام - 128 جيجا - أحمر</a
+                  >
+                </td>
+                <td>
+                  <p class="text-sm font-medium text-foreground">VU000330</p>
+                </td>
+                <td>
+                  <p class="text-sm font-medium text-foreground">999</p>
+                </td>
+                <td>
+                  <p class="text-sm font-medium text-foreground">67.25</p>
+                </td>
+                <td>
+                  <p class="text-sm font-medium text-foreground">7</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a
+                    href="#"
+                    class="text-sm font-medium text-foreground hover:text-primary whitespace-nowrap"
+                    >ون بلس 12 - 16 جيجا رام - 1 تيرا - أبيض</a
+                  >
+                </td>
+                <td>
+                  <p class="text-sm font-medium text-foreground">VU000330</p>
+                </td>
+                <td>
+                  <p class="text-sm font-medium text-foreground">999</p>
+                </td>
+                <td>
+                  <p class="text-sm font-medium text-foreground">89.90</p>
+                </td>
+                <td>
+                  <p class="text-sm font-medium text-foreground">2</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div
-          class="flex items-center justify-between gap-2 py-2 border-b border-border border-soild last:border-none"
-        >
-          <div class="flex items-center gap-3">
-            <div>
-              <a href="#" class="text-sm font-medium text-secondary">قيد الموافقة</a>
-            </div>
-          </div>
-          <span class="text-sm font-medium text-primary">Ahmed</span>
-        </div>
-        <div
-          class="flex items-center justify-between gap-2 py-2 border-b border-border border-soild last:border-none"
-        >
-          <div class="flex items-center gap-3">
-            <div>
-              <a href="#" class="text-sm font-medium text-secondary">المرفوضة</a>
-            </div>
-          </div>
-          <span class="text-sm font-medium text-primary">Ahmed</span>
-        </div>
-      </div>
-      <div class="kt-card-footer border-none justify-center">
-        <button
-          class="kt-link text-md border-2 rounded-full border-orange-500 text-black hover:bg-orange-50 transition-colors px-8 py-1"
-        >
-          تعديل
-        </button>
-      </div>
-    </div>
-
-    <div class="kt-card w-[250px] pt-3">
-      <div class="kt-card-header min-h-0 border-none">
-        <div class="kt-card-heading">
-          <h2 class="kt-card-title text-lg font-extrabold text-primary">طلبياتك</h2>
-        </div>
-      </div>
-      <div class="kt-card-content py-1">
-        <div
-          class="flex items-center justify-between gap-2 py-2 border-b border-border border-soild last:border-none"
-        >
-          <div class="flex items-center gap-3">
-            <div>
-              <a href="#" class="text-sm font-medium text-secondary">قيد انتظار الموافقة</a>
-            </div>
-          </div>
-          <span class="text-sm font-medium text-primary">Ahmed</span>
-        </div>
-        <div
-          class="flex items-center justify-between gap-2 py-2 border-b border-border border-soild last:border-none"
-        >
-          <div class="flex items-center gap-3">
-            <div>
-              <a href="#" class="text-sm font-medium text-secondary">المستلمة</a>
-            </div>
-          </div>
-          <span class="text-sm font-medium text-primary">Ahmed</span>
-        </div>
-        <div
-          class="flex items-center justify-between gap-2 py-2 border-b border-border border-soild last:border-none"
-        >
-          <div class="flex items-center gap-3">
-            <div>
-              <a href="#" class="text-sm font-medium text-secondary">المرفوضة</a>
-            </div>
-          </div>
-          <span class="text-sm font-medium text-primary">Ahmed</span>
-        </div>
-      </div>
-      <div class="kt-card-footer border-none justify-center">
-        <button
-          class="kt-link text-md border-2 rounded-full border-orange-500 text-black hover:bg-orange-50 transition-colors px-8 py-1"
-        >
-          تعديل
-        </button>
-      </div>
-    </div>
-
-    <div class="kt-card w-[250px] pt-3">
-      <div class="kt-card-header min-h-0 border-none">
-        <div class="kt-card-heading">
-          <h2 class="kt-card-title text-lg font-extrabold text-primary">مبيعاتك</h2>
-        </div>
-      </div>
-      <div class="kt-card-content py-1">
-        <div
-          class="flex items-center justify-between gap-2 py-2 border-b border-border border-soild last:border-none"
-        >
-          <div class="flex items-center gap-3">
-            <div>
-              <a href="#" class="text-sm font-medium text-secondary">مبيعات الاسبوع الحالى</a>
-            </div>
-          </div>
-          <span class="text-sm font-medium text-primary">Ahmed</span>
-        </div>
-        <div
-          class="flex items-center justify-between gap-2 py-2 border-b border-border border-soild last:border-none"
-        >
-          <div class="flex items-center gap-3">
-            <div>
-              <a href="#" class="text-sm font-medium text-secondary">مبيعات هذا الشهر</a>
-            </div>
-          </div>
-          <span class="text-sm font-medium text-primary">Ahmed</span>
-        </div>
-        <div
-          class="flex items-center justify-between gap-2 py-2 border-b border-border border-soild last:border-none"
-        >
-          <div class="flex items-center gap-3">
-            <div>
-              <a href="#" class="text-sm font-medium text-secondary">إجمالى المبيعات</a>
-            </div>
-          </div>
-          <span class="text-sm font-medium text-primary">Ahmed</span>
-        </div>
-      </div>
-      <div class="kt-card-footer border-none justify-center">
-        <button
-          class="kt-link text-md border-2 rounded-full border-orange-500 text-black hover:bg-orange-50 transition-colors px-8 py-1"
-        >
-          تعديل
-        </button>
-      </div>
-    </div>
-
-    <div class="kt-card w-[250px] pt-3">
-      <div class="kt-card-header min-h-0 border-none">
-        <div class="kt-card-heading">
-          <h2 class="kt-card-title text-lg font-extrabold text-primary">مرتجعاتك</h2>
-        </div>
-      </div>
-      <div class="kt-card-content py-1">
-        <div
-          class="flex items-center justify-between gap-2 py-2 border-b border-border border-soild last:border-none"
-        >
-          <div class="flex items-center gap-3">
-            <div>
-              <a href="#" class="text-sm font-medium text-secondary">قيد المراجعه</a>
-            </div>
-          </div>
-          <span class="text-sm font-medium text-primary">Ahmed</span>
-        </div>
-        <div
-          class="flex items-center justify-between gap-2 py-2 border-b border-border border-soild last:border-none"
-        >
-          <div class="flex items-center gap-3">
-            <div>
-              <a href="#" class="text-sm font-medium text-secondary">مرتجع</a>
-            </div>
-          </div>
-          <span class="text-sm font-medium text-primary">Ahmed</span>
-        </div>
-        <div
-          class="flex items-center justify-between gap-2 py-2 border-b border-border border-soild last:border-none"
-        >
-          <div class="flex items-center gap-3">
-            <div>
-              <a href="#" class="text-sm font-medium text-secondary">تم الرفض</a>
-            </div>
-          </div>
-          <span class="text-sm font-medium text-primary">Ahmed</span>
-        </div>
-      </div>
-      <div class="kt-card-footer border-none justify-center">
-        <button
-          class="kt-link text-md border-2 rounded-full border-orange-500 text-black hover:bg-orange-50 transition-colors px-8 py-1"
-        >
-          تعديل
-        </button>
-      </div>
-    </div>
-
-    <div class="kt-card w-[250px] h-[220px] pt-3">
-      <div class="kt-card-header min-h-0 border-none">
-        <div class="kt-card-heading">
-          <h2 class="kt-card-title text-lg font-extrabold text-primary">إضافة منتج</h2>
-        </div>
-      </div>
-      <div class="kt-card-content py-1">
-        <div
-          class="flex flex-col gap-2 py-2 border-b border-border border-soild last:border-none"
-        >
-          <div class="">
-            <div>
-              <a href="#" class="text-sm font-medium text-secondary">إضافة منتج جديد للمتجر</a>
-            </div>
-          </div>
-          <div class="flex flex-col items-center justify-center gap-3">
-            <p class="text-sm font-medium text-secondary mb-8">من هنا</p>
-            <button type="button" class="kt-btn kt-btn-ghost bg-transparent rounded-full "><img src="@/assets/images/CardsHome/add-button.png" alt="plus" class="w-[50%] shadow-sm shadow-border hover:shadow-orange-600/50 rounded-full"></button>
-          </div>
-
-        </div>
-
       </div>
     </div>
   </div>

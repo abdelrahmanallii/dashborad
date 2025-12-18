@@ -2,12 +2,17 @@
 
 :root {
   --color-primary: #f3640b;
-  --color-secondary: #00897B;
+  --color-secondary: #00897b;
   --color-third: #003f91;
   --color-hover: #035e5e;
+  --color-op: #6e6b7b;
 }
 
 .text-primary {
+  color: var(--color-primary) !important;
+}
+
+.text-primary:hover {
   color: var(--color-primary) !important;
 }
 
@@ -24,6 +29,10 @@
 
 .text-hover {
   color: var(--color-hover) !important;
+}
+
+.text-op {
+  color: var(--color-op) !important;
 }
 
 @import './metronic/css/styles.css';
