@@ -1,5 +1,5 @@
 <template>
-  <div class="antialiased flex h-full text-base text-foreground bg-background demo1 kt-sidebar-fixed kt-header-fixed dark:bg-coal-500">
+
     <div class="flex grow">
     <!-- Sidebar -->
     <div class="kt-sidebar bg-background border-e border-e-border fixed top-0 bottom-0 z-20 hidden lg:flex flex-col items-stretch shrink-0 [--kt-drawer-enable:true] lg:[--kt-drawer-enable:false]" data-kt-drawer="true" data-kt-drawer-class="kt-drawer kt-drawer-center top-0 bottom-0" id="sidebar">
@@ -1822,15 +1822,13 @@
           }}</span>
          </div>
          <div
-          class="flex items-center justify-around gap-2 py-2 border-b border-border border-soild last:border-none"
+          class="flex items-center justify-between sm:justify-around gap-2 py-2 border-b border-border border-soild last:border-none"
          >
-          <div class="flex flex-col items-center gap-3">
-           <div>
-            <a href="#" class="text-sm font-medium text-secondary">رصيد متاح للتحصيل </a>
-            <span class="text-xs sm:text-left font-medium text-primary">{{
+          <div class="flex flex-col xl:flex-row sm:items-center gap-1 sm:gap-2 md:gap-3 flex-1 sm:flex-none">
+            <a href="#" class="text-md xl:text-sm font-medium text-secondary">رصيد متاح للتحصيل </a>
+            <span class="text-md xl:text-xs sm:text-left xl:font-bold font-medium text-primary">{{
             formatCurrency(17755555.82, currentCountry)
           }}</span>
-           </div>
           </div>
 
          </div>
@@ -1913,7 +1911,7 @@
          >
           <div class="flex items-center gap-3">
            <div>
-            <a href="#" class="text-sm font-medium text-secondary">المستلمة</a>
+            <a href="#" class="text-sm font-medium text-secondary">قيد انتظار الشحن</a>
            </div>
           </div>
           <span class="text-sm font-medium text-primary">Ahmed</span>
@@ -1923,7 +1921,7 @@
          >
           <div class="flex items-center gap-3">
            <div>
-            <a href="#" class="text-sm font-medium text-secondary">المرفوضة</a>
+            <a href="#" class="text-sm font-medium text-secondary">المستلمة</a>
            </div>
           </div>
           <span class="text-sm font-medium text-primary">Ahmed</span>
@@ -2042,14 +2040,14 @@
          <div
           class="flex flex-col gap-2 py-2 border-b border-border border-soild last:border-none"
          >
-          <div class="">
            <div>
             <a href="#" class="text-sm font-medium text-secondary">إضافة منتج جديد للمتجر</a>
            </div>
-          </div>
           <div class="flex flex-col items-center justify-center gap-3">
-           <p class="text-sm font-medium text-secondary mb-8">من هنا</p>
-           <button type="button" class="kt-btn kt-btn-ghost bg-transparent rounded-full "><img src="@/assets/images/CardsHome/add-button.png" alt="plus" class="w-[50%] shadow-sm hover:shadow-orange-600/70 rounded-full"></button>
+           <p class="text-sm font-medium text-secondary md:mb-1">من هنا</p>
+           <button type="button" class="kt-btn kt-btn-ghost bg-transparent rounded-full w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] md:w-[80px] md:h-[80px] lg:w-[90px] lg:h-[90px] xl:w-[100px] xl:h-[100px] flex items-center justify-center p-0">
+            <img src="@/assets/images/CardsHome/add-button.png" alt="plus" class="w-full h-full object-contain shadow-sm hover:shadow-orange-600/70 rounded-full transition-shadow duration-300">
+          </button>
           </div>
 
          </div>
@@ -3534,51 +3532,8 @@
     </div>
    </div>
   </div>
-  </div><!-- <div class="flex flex-col text-center p-4 bg-gray-50">
-      <div class="bg-white rounded-2xl shadow-lg p-6 w-full max-w-md">
-        <h2 class="text-lg font-bold text-orange-500 mb-1 text-right flex flex-row gap-0.5">
-          الرصيد
-        </h2>
 
-        <div class="flex flex-col w-55 h-full">
-          <div class="flex flex-col mb-2 pb-3 border-b border-gray-200">
-            <div class="text-right">
-              <p class="text-teal-600 font-medium text-base">رصيد قيد التحصيل</p>
-            </div>
-            <div class="text-left flex flex-row gap-0.5">
-              <p class="text-gray-900 text-md font-semibold">19000</p>
-              <span class="text-gray-700 mr-1">جنية</span>
-            </div>
-          </div>
 
-          <div class="flex flex-col mb-2 pb-3 border-b border-gray-200">
-            <div class="text-right">
-              <p class="text-teal-600 font-medium text-base">رصيد مسدد من قبل</p>
-            </div>
-            <div class="text-left flex flex-row gap-0.5">
-              <p class="text-gray-900 text-md font-semibold">0</p>
-              <span class="text-gray-700 mr-1">جنية</span>
-            </div>
-          </div>
-
-          <div class="flex flex-col mb-6">
-            <div class="text-right">
-              <p class="text-teal-600 font-medium text-base">رصيد متاح للتحصيل</p>
-            </div>
-            <div class="text-left flex flex-row gap-0.5">
-              <p class="text-gray-900 text-md font-semibold">1779331.82</p>
-              <span class="text-gray-700 mr-1">جنية</span>
-            </div>
-          </div>
-        </div>
-
-        <button
-          class="w-[50%] py-1 rounded-full border-2 border-orange-500 bg-white text-gray-900 font-medium hover:bg-orange-50 dark:text-white dark:hover:bg-orange-500transition-colors"
-        >
-          سحب
-        </button>
-      </div>
-    </div> -->
 
 
 

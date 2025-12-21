@@ -1,37 +1,3 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-import { RouterLink } from 'vue-router'
-
-const email = ref('')
-const password = ref('')
-const emailTouched = ref(false)
-const passwordTouched = ref(false)
-
-const handleEmailFocus = () => {
-  emailTouched.value = false
-}
-
-const handleEmailBlur = () => {
-  emailTouched.value = true
-}
-
-const handlePasswordFocus = () => {
-  passwordTouched.value = false
-}
-
-const handlePasswordBlur = () => {
-  passwordTouched.value = true
-}
-
-const showEmailError = () => {
-  return emailTouched.value && !email.value.trim()
-}
-
-const showPasswordError = () => {
-  return passwordTouched.value && !password.value.trim()
-}
-</script>
-
 <template>
   <div class="min-h-screen grid md:grid-cols-2 grid-cols-1">
     <!-- Left Side - Images Section -->
@@ -65,7 +31,7 @@ const showPasswordError = () => {
 
     <!-- Right Side - Login Form -->
     <div
-      class="md:mx-auto flex items-center justify-center min-h-screen bg-secondary2 p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12"
+      class="md:mx-auto flex items-center justify-center min-h-screen bg-secondary2 p-4 sm:px-6 md:px-8 lg:px-10 xl:px-16"
     >
       <div class="w-full md:max-w-md lg:max-w-lg xl:max-w-xl">
         <div class="flex flex-col items-center gap-y-4 sm:gap-y-5 lg:gap-y-6">
@@ -91,7 +57,7 @@ const showPasswordError = () => {
           </div>
 
           <!-- Form -->
-          <form action="" class="flex flex-col gap-y-3 w-full">
+          <form action="" @submit.prevent="handleSubmit" class="flex flex-col gap-y-3 w-full">
             <!-- Email Input -->
             <div class="flex flex-col w-full">
               <input
@@ -136,7 +102,7 @@ const showPasswordError = () => {
 
             <!-- Buttons -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full">
-              <button type="button" class="kt-btn bg-primary text-white text-sm sm:text-base p-5">
+              <button type="submit" class="kt-btn bg-primary text-white text-sm sm:text-base p-5">
                 تسجيل دخول
               </button>
               <button
@@ -158,3 +124,53 @@ const showPasswordError = () => {
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+import { RouterLink } from 'vue-router'
+// import { useUserStore } from '@/stores/Auth'
+import axios from 'axios'
+// const userStore = useUserStore()
+const email = ref('')
+const password = ref('')
+const emailTouched = ref(false)
+const passwordTouched = ref(false)
+
+const handleEmailFocus = () => {
+  emailTouched.value = false
+}
+
+const handleEmailBlur = () => {
+  emailTouched.value = true
+}
+
+const handlePasswordFocus = () => {
+  passwordTouched.value = false
+}
+
+const handlePasswordBlur = () => {
+  passwordTouched.value = true
+}
+
+const showEmailError = () => {
+  return emailTouched.value && !email.value.trim()
+}
+
+const showPasswordError = () => {
+  return passwordTouched.value && !password.value.trim()
+}
+
+async function handleSubmit() {
+  axios
+    .post(`https://api-test.mobilemasr.com/vendor/login`, {
+      email: email.value,
+      password: password.value,
+    })
+    .then((data) => {
+      console.log(data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+}
+</script>
