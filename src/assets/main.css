@@ -35,6 +35,28 @@
   color: var(--color-op) !important;
 }
 
+.bg-primary {
+  background-color: var(--color-primary) !important;
+}
+.bg-primary:hover {
+  background-color: var(--color-primary) !important;
+}
+.bg-secondary {
+  background-color: var(--color-secondary) !important;
+}
+.bg-secondary2 {
+  background-color: var(--color-hover) !important;
+}
+
+.bg-third {
+  background-color: var(--color-third) !important;
+}
+
+.bg-op {
+  background-color: var(--color-op) !important;
+}
+
+
 @import './metronic/css/styles.css';
 @import './metronic/css/demos/demo1.css';
 

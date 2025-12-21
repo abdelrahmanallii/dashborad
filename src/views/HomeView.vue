@@ -1,66 +1,21 @@
 <template>
-      <!-- <div class="flex flex-col text-center p-4 bg-gray-50">
-      <div class="bg-white rounded-2xl shadow-lg p-6 w-full max-w-md">
-        <h2 class="text-lg font-bold text-orange-500 mb-1 text-right flex flex-row gap-0.5">
-          الرصيد
-        </h2>
-
-        <div class="flex flex-col w-55 h-full">
-          <div class="flex flex-col mb-2 pb-3 border-b border-gray-200">
-            <div class="text-right">
-              <p class="text-teal-600 font-medium text-base">رصيد قيد التحصيل</p>
-            </div>
-            <div class="text-left flex flex-row gap-0.5">
-              <p class="text-gray-900 text-md font-semibold">19000</p>
-              <span class="text-gray-700 mr-1">جنية</span>
-            </div>
-          </div>
-
-          <div class="flex flex-col mb-2 pb-3 border-b border-gray-200">
-            <div class="text-right">
-              <p class="text-teal-600 font-medium text-base">رصيد مسدد من قبل</p>
-            </div>
-            <div class="text-left flex flex-row gap-0.5">
-              <p class="text-gray-900 text-md font-semibold">0</p>
-              <span class="text-gray-700 mr-1">جنية</span>
-            </div>
-          </div>
-
-          <div class="flex flex-col mb-6">
-            <div class="text-right">
-              <p class="text-teal-600 font-medium text-base">رصيد متاح للتحصيل</p>
-            </div>
-            <div class="text-left flex flex-row gap-0.5">
-              <p class="text-gray-900 text-md font-semibold">1779331.82</p>
-              <span class="text-gray-700 mr-1">جنية</span>
-            </div>
-          </div>
-        </div>
-
-        <button
-          class="w-[50%] py-1 rounded-full border-2 border-orange-500 bg-white text-gray-900 font-medium hover:bg-orange-50 dark:text-white dark:hover:bg-orange-500transition-colors"
-        >
-          سحب
-        </button>
-      </div>
-    </div> -->
-
+  <div class="antialiased flex h-full text-base text-foreground bg-background demo1 kt-sidebar-fixed kt-header-fixed dark:bg-coal-500">
     <div class="flex grow">
-   <!-- Sidebar -->
-   <div class="kt-sidebar bg-background border-e border-e-border fixed top-0 bottom-0 z-20 hidden lg:flex flex-col items-stretch shrink-0 [--kt-drawer-enable:true] lg:[--kt-drawer-enable:false]" data-kt-drawer="true" data-kt-drawer-class="kt-drawer kt-drawer-center top-0 bottom-0" id="sidebar">
+    <!-- Sidebar -->
+    <div class="kt-sidebar bg-background border-e border-e-border fixed top-0 bottom-0 z-20 hidden lg:flex flex-col items-stretch shrink-0 [--kt-drawer-enable:true] lg:[--kt-drawer-enable:false]" data-kt-drawer="true" data-kt-drawer-class="kt-drawer kt-drawer-center top-0 bottom-0" id="sidebar">
     <div class="kt-sidebar-header hidden lg:flex items-center relative justify-between px-3 lg:px-6 shrink-0" id="sidebar_header">
-     <a class="dark:hidden" href="html/demo1.html">
+      <a class="dark:hidden" href="html/demo1.html">
       <img class="default-logo w-[200px] min-h-[22px] max-w-none" src="@/assets/Images/03.png"/>
       <img class="small-logo absolute top-4 left-4 w-[50px] min-h-[22px] max-w-none" src="@/assets/Images/02.png"/>
-     </a>
-     <a class="hidden dark:block" href="html/demo1.html">
+      </a>
+      <a class="hidden dark:block" href="html/demo1.html">
       <img class="default-logo w-[200px] min-h-[22px] max-w-none" src="@/assets/Images/Mobilemasr Logo.png"/>
       <img class="small-logo absolute top-4 left-0 w-[80px] min-h-[22px] max-w-none" src="@/assets/Images/LOGO 02-01.png"/>
-     </a>
-     <button class="kt-btn kt-btn-outline kt-btn-icon size-[30px] absolute start-full top-2/4 -translate-x-2/4 -translate-y-2/4 rtl:translate-x-2/4" data-kt-toggle="body" data-kt-toggle-class="kt-sidebar-collapse" id="sidebar_toggle">
+      </a>
+      <button class="kt-btn kt-btn-outline kt-btn-icon size-[30px] absolute start-full top-2/4 -translate-x-2/4 -translate-y-2/4 rtl:translate-x-2/4" data-kt-toggle="body" data-kt-toggle-class="kt-sidebar-collapse" id="sidebar_toggle">
       <i class="ki-filled ki-black-left-line kt-toggle-active:rotate-180 transition-all duration-300 rtl:translate rtl:rotate-180 rtl:kt-toggle-active:rotate-0">
       </i>
-     </button>
+      </button>
     </div>
     <div class="kt-sidebar-content flex grow shrink-0 py-5 pe-2" id="sidebar_content">
      <div class=" grow shrink-0 flex ps-2 lg:ps-5 pe-1 lg:pe-3" data-kt-scrollable="true" data-kt-scrollable-dependencies="#sidebar_header" data-kt-scrollable-height="auto" data-kt-scrollable-offset="0px" data-kt-scrollable-wrappers="#sidebar_content" id="sidebar_scrollable">
@@ -3579,6 +3534,53 @@
     </div>
    </div>
   </div>
+  </div><!-- <div class="flex flex-col text-center p-4 bg-gray-50">
+      <div class="bg-white rounded-2xl shadow-lg p-6 w-full max-w-md">
+        <h2 class="text-lg font-bold text-orange-500 mb-1 text-right flex flex-row gap-0.5">
+          الرصيد
+        </h2>
+
+        <div class="flex flex-col w-55 h-full">
+          <div class="flex flex-col mb-2 pb-3 border-b border-gray-200">
+            <div class="text-right">
+              <p class="text-teal-600 font-medium text-base">رصيد قيد التحصيل</p>
+            </div>
+            <div class="text-left flex flex-row gap-0.5">
+              <p class="text-gray-900 text-md font-semibold">19000</p>
+              <span class="text-gray-700 mr-1">جنية</span>
+            </div>
+          </div>
+
+          <div class="flex flex-col mb-2 pb-3 border-b border-gray-200">
+            <div class="text-right">
+              <p class="text-teal-600 font-medium text-base">رصيد مسدد من قبل</p>
+            </div>
+            <div class="text-left flex flex-row gap-0.5">
+              <p class="text-gray-900 text-md font-semibold">0</p>
+              <span class="text-gray-700 mr-1">جنية</span>
+            </div>
+          </div>
+
+          <div class="flex flex-col mb-6">
+            <div class="text-right">
+              <p class="text-teal-600 font-medium text-base">رصيد متاح للتحصيل</p>
+            </div>
+            <div class="text-left flex flex-row gap-0.5">
+              <p class="text-gray-900 text-md font-semibold">1779331.82</p>
+              <span class="text-gray-700 mr-1">جنية</span>
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="w-[50%] py-1 rounded-full border-2 border-orange-500 bg-white text-gray-900 font-medium hover:bg-orange-50 dark:text-white dark:hover:bg-orange-500transition-colors"
+        >
+          سحب
+        </button>
+      </div>
+    </div> -->
+
+
 
 </template>
 
