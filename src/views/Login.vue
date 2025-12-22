@@ -127,10 +127,11 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { RouterLink } from 'vue-router'
-// import { useUserStore } from '@/stores/Auth'
+import { RouterLink, useRouter } from 'vue-router'
+import { useUserStore } from '@/stores/Auth'
 import axios from 'axios'
-// const userStore = useUserStore()
+const userStore = useUserStore()
+const router = useRouter()
 const email = ref('')
 const password = ref('')
 const emailTouched = ref(false)
@@ -160,17 +161,43 @@ const showPasswordError = () => {
   return passwordTouched.value && !password.value.trim()
 }
 
-async function handleSubmit() {
+function handleSubmit() {
+  // إرسال طلب تسجيل الدخول للـ API
   axios
     .post(`https://api-test.mobilemasr.com/vendor/login`, {
       email: email.value,
       password: password.value,
     })
-    .then((data) => {
-      console.log(data)
+    .then((response) => {
+      // في حالة النجاح
+      console.log('تم تسجيل الدخول بنجاح:', response.data)
+
+      // جلب التوكن من الاستجابة
+      const accessToken = response.data?.data?.access_token
+
+      if (accessToken) {
+        // حفظ التوكن بالشكل الصحيح (object يحتوي على accessToken)
+        const tokenData = {
+          accessToken: accessToken,
+          refreshToken: response.data?.data?.refresh_token || '',
+          tokenType: 'Bearer',
+          expiresIn: response.data?.data?.expires_in || 0,
+        }
+        userStore.setToken(tokenData)
+      } else {
+        console.warn('لم يتم العثور على التوكن في الاستجابة')
+      }
+
+      // حفظ بيانات المستخدم باستخدام setUser
+      const userData = response.data?.user
+      if (userData) userStore.setUser(userData)
+
+      // إعادة التوجيه إلى صفحة Home بعد نجاح تسجيل الدخول
+      router.push('/')
     })
     .catch((error) => {
-      console.log(error)
+      // في حالة الخطأ
+      console.log(error.response?.data || error.message)
     })
 }
 </script>

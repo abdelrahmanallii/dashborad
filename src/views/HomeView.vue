@@ -1717,9 +1717,12 @@
            </span>
            <input class="kt-switch" data-kt-theme-switch-state="dark" data-kt-theme-switch-toggle="true" name="check" type="checkbox" value="1"/>
           </div>
-          <a class="kt-btn kt-btn-outline justify-center w-full" href="html/demo1/authentication/classic/sign-in.html">
+          <button
+            @click="handleLogout"
+            class="kt-btn kt-btn-outline justify-center w-full"
+          >
            Log out
-          </a>
+          </button>
          </div>
         </div>
        </div>
@@ -3541,7 +3544,17 @@
 
 <script setup lang="ts">
 import { formatCurrency } from '@/utility/currency'
+import { useRouter } from 'vue-router'
+import { useUserStore } from '@/stores/Auth'
 
 // يمكنك تغيير البلد هنا أو جعله متغير
 const currentCountry = 'EG'
+
+const router = useRouter()
+const userStore = useUserStore()
+
+// دالة تسجيل الخروج
+const handleLogout = () => {
+  userStore.logout(router)
+}
 </script>
