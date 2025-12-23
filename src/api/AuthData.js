@@ -37,11 +37,14 @@ export function useAuthData() {
         userStore.setToken(token)
 
         // البحث عن بيانات المستخدم بشكل منفصل عن التوكن
-        const userData = response.data?.user || response.data?.data?.user || null
-
+        const userData = response.data?.data?.data || response.data?.data
         if (userData) {
           // حفظ بيانات المستخدم بشكل منفصل في store و localStorage
-          userStore.setUser(userData)
+          userStore.user.email = userData.email
+          userStore.user.storename = userData.storename
+          userStore.user.profile_picture = userData.profile_picture
+          userStore.setUser(userStore.user)
+
           console.log('✅ تم حفظ بيانات المستخدم بشكل منفصل في localStorage')
         }
 
@@ -63,6 +66,7 @@ export function useAuthData() {
   }
 
   return {
+    
     Login,
   }
 }

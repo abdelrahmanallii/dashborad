@@ -1506,25 +1506,25 @@
      <!-- User -->
      <div class="shrink-0" data-kt-dropdown="true" data-kt-dropdown-offset="10px, 10px" data-kt-dropdown-offset-rtl="-20px, 10px" data-kt-dropdown-placement="bottom-end" data-kt-dropdown-placement-rtl="bottom-start" data-kt-dropdown-trigger="click">
       <div class="flex items-center cursor-pointer gap-2" data-kt-dropdown-toggle="true">
-        <div v-if="homeData">
+        <div v-if="userData">
         <a href="#" class="text-sm text-foreground font-semibold leading-none">
-          {{homeData.storename}}
+          {{userData.storename}}
         </a>
       </div>
-        <div v-if="homeData" class="cursor-pointer shrink-0">
-       <img alt="" class="size-10 rounded-full border-2 border-green-500 shrink-0 " :src="homeData.profile_picture"/>
+        <div v-if="userStore.user?.profile_picture" class="cursor-pointer shrink-0">
+       <img alt="" class="size-10 rounded-full border-2 border-green-500 shrink-0 " :src="userData.profile_picture"/>
       </div>
       </div>
-      <div v-if="homeData" class="kt-dropdown-menu w-[250px]" data-kt-dropdown-menu="true">
+      <div v-if="userData" class="kt-dropdown-menu w-[250px]" data-kt-dropdown-menu="true">
        <div class="flex items-center justify-between px-2.5 py-1.5 gap-1.5">
         <div class="flex items-center gap-2">
-         <img alt="" class="size-9 shrink-0 rounded-full border-2 border-green-500"  :src="homeData.profile_picture"/>
+         <img alt="" class="size-9 shrink-0 rounded-full border-2 border-green-500"  :src="userData.profile_picture"/>
          <div class="flex flex-col gap-1.5">
           <span class="text-sm text-foreground font-semibold leading-none">
-           {{homeData.storename}}
+           {{userData.storename}}
           </span>
           <a class="text-xs text-secondary-foreground hover:text-primary font-medium leading-none" href="#">
-           {{homeData.email}}
+           {{userData.email}}
           </a>
          </div>
         </div>
@@ -3483,7 +3483,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/Auth'
 import { useHomeData } from '@/api/HomeData'
@@ -3493,6 +3493,10 @@ import { formatCurrency } from '@/utility/currency'
 const router = useRouter()
 const userStore = useUserStore()
 
+
+// أو يمكن استخدام computed للحصول على بيانات المستخدم
+const userData = computed(() => userStore.user)
+
 // استدعاء useHomeData للحصول على البيانات والدوال
 const {
     homeData,
@@ -3500,6 +3504,7 @@ const {
     vendorWallet,
     products,
     pagination,
+
   fetchAllData,
 } = useHomeData()
 
@@ -3508,6 +3513,12 @@ const currentCountry = ref('EG')
 
 // جلب البيانات عند تحميل الصفحة
 onMounted(async () => {
+  // تحميل بيانات المستخدم من localStorage إذا كانت موجودة
+  const savedUser = userStore.getUser()
+  if (savedUser) {
+    userStore.setUser(savedUser)
+  }
+
   await fetchAllData()
 })
 
