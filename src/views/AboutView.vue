@@ -1511,7 +1511,7 @@
           {{vendorData.storename}}
         </a>
       </div>
-        <div v-if="profilePicture || userStore.user || vendorData" class="cursor-pointer shrink-0">
+        <div v-if="profilePicture || vendorData" class="cursor-pointer shrink-0">
        <img alt="" class="size-10 rounded-full border-2 border-green-500 shrink-0 " :src="profilePicture"/>
       </div>
       </div>
@@ -1796,7 +1796,7 @@
       </div>
      </div>
 
-     <div v-if="vendorWallet"  class="kt-card pt-3">
+     <div v-if="homeData"  class="kt-card pt-3">
       <div class="kt-card-header min-h-0 border-none">
        <div class="kt-card-heading">
         <h2 class="kt-card-title text-lg font-extrabold text-primary">الرصيد</h2>
@@ -1812,7 +1812,7 @@
          </div>
         </div>
         <span class="text-sm font-medium text-primary">{{
-          formatCurrency(vendorWallet.pending_amount, currentCountry)
+          formatCurrency(homeData.pending_amount, currentCountry)
         }}</span>
        </div>
        <div
@@ -1824,7 +1824,7 @@
          </div>
         </div>
         <span class="text-sm font-medium text-primary">{{
-          formatCurrency(vendorWallet.received_amount, currentCountry)
+          formatCurrency(homeData.received_amount, currentCountry)
         }}</span>
        </div>
        <div
@@ -1833,7 +1833,7 @@
         <div class="flex flex-col xl:flex-row sm:items-center gap-1 sm:gap-2 md:gap-3 flex-1 sm:flex-none">
           <a href="#" class="text-md xl:text-sm font-medium text-secondary">رصيد متاح للتحصيل </a>
           <span class="text-md xl:text-xs sm:text-left xl:font-bold font-medium text-primary">{{
-          formatCurrency(vendorWallet.available_amount, currentCountry)
+          formatCurrency(homeData.available_amount, currentCountry)
         }}</span>
         </div>
 
@@ -3500,13 +3500,10 @@
   const { vendorData,  fetchVendorData } = useVendorData()
   const { products,  fetchTopProducts } = useProductsData()
 
-  const vendorWallet = computed(() => vendorData.value?.vendor_wallet || null)
+  const homeData = computed(() => vendorData.value?.vendor_wallet || null)
   const accountManager = computed(() => vendorData.value?.account_manager || null)
   const profilePicture = computed(() => {
-    return userStore.user?.profile_picture ||
-            accountManager.value?.profile_picture ||
-            vendorData.value?.profile_picture ||
-            null
+    return
   })
   // دالة تسجيل الخروج
   const handleLogout = () => {
@@ -3521,7 +3518,7 @@
         fetchVendorData(),
         fetchTopProducts(10, 1)
       ])
-      console.log('userStore.user:', userStore.user)
+
       console.log('profilePicture:', profilePicture.value)
     } catch (error) {
       console.error('خطأ في جلب البيانات:', error)

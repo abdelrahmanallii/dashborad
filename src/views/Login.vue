@@ -92,6 +92,15 @@
               </span>
             </div>
 
+            <!-- Error Message -->
+            <div v-if="loginError" class="w-full">
+              <div
+                class="bg-red-500/20 border border-red-500 text-red-200 text-sm p-3 rounded text-right"
+              >
+                {{ loginError }}
+              </div>
+            </div>
+
             <!-- Remember Me -->
             <div class="flex items-center gap-2">
               <input type="checkbox" class="kt-checkbox" id="check" value="1" />
@@ -102,8 +111,13 @@
 
             <!-- Buttons -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full">
-              <button type="submit" class="kt-btn bg-primary text-white text-sm sm:text-base p-5">
-                تسجيل دخول
+              <button
+                type="submit"
+                :disabled="loading"
+                class="kt-btn bg-primary text-white text-sm sm:text-base p-5 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <span v-if="loading">جاري تسجيل الدخول...</span>
+                <span v-else>تسجيل دخول</span>
               </button>
               <button
                 type="button"
@@ -129,16 +143,22 @@
 import { ref } from 'vue'
 import { RouterLink, useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/Auth'
-import axios from 'axios'
+import { useAuthData } from '@/api/AuthData'
+
 const userStore = useUserStore()
 const router = useRouter()
 const email = ref('')
 const password = ref('')
 const emailTouched = ref(false)
 const passwordTouched = ref(false)
+const loginError = ref('')
+
+// استدعاء useAuthData للحصول على دالة Login وحالات loading و error
+const { Login, loading, error } = useAuthData()
 
 const handleEmailFocus = () => {
   emailTouched.value = false
+  loginError.value = ''
 }
 
 const handleEmailBlur = () => {
@@ -147,6 +167,7 @@ const handleEmailBlur = () => {
 
 const handlePasswordFocus = () => {
   passwordTouched.value = false
+  loginError.value = ''
 }
 
 const handlePasswordBlur = () => {
@@ -161,43 +182,30 @@ const showPasswordError = () => {
   return passwordTouched.value && !password.value.trim()
 }
 
-function handleSubmit() {
-  // إرسال طلب تسجيل الدخول للـ API
-  axios
-    .post(`https://api-test.mobilemasr.com/vendor/login`, {
-      email: email.value,
-      password: password.value,
-    })
-    .then((response) => {
-      // في حالة النجاح
-      console.log('تم تسجيل الدخول بنجاح:', response.data)
+async function handleSubmit() {
+  // التحقق من صحة البيانات قبل الإرسال
+  if (!email.value.trim() || !password.value.trim()) {
+    emailTouched.value = true
+    passwordTouched.value = true
+    return
+  }
 
-      // جلب التوكن من الاستجابة
-      const accessToken = response.data?.data?.access_token
+  // إعادة تعيين رسالة الخطأ
+  loginError.value = ''
 
-      if (accessToken) {
-        // حفظ التوكن بالشكل الصحيح (object يحتوي على accessToken)
-        const tokenData = {
-          accessToken: accessToken,
-          refreshToken: response.data?.data?.refresh_token || '',
-          tokenType: 'Bearer',
-          expiresIn: response.data?.data?.expires_in || 0,
-        }
-        userStore.setToken(tokenData)
-      } else {
-        console.warn('لم يتم العثور على التوكن في الاستجابة')
-      }
+  // استدعاء دالة Login من AuthData - التوكن سيتم حفظه تلقائياً
+  const result = await Login(email.value.trim(), password.value.trim() ,)
 
-      // حفظ بيانات المستخدم باستخدام setUser
-      const userData = response.data?.user
-      if (userData) userStore.setUser(userData)
+  console.log(result)
+  if (result.success) {
+    // في حالة النجاح، التوجه إلى الصفحة الرئيسية
+    // التوكن محفوظ بالفعل في الـ store من خلال AuthData
 
-      // إعادة التوجيه إلى صفحة Home بعد نجاح تسجيل الدخول
-      router.push('/')
-    })
-    .catch((error) => {
-      // في حالة الخطأ
-      console.log(error.response?.data || error.message)
-    })
+    router.push('/')
+
+  } else {
+    // في حالة الفشل، عرض رسالة الخطأ
+    loginError.value = result.error || error.value || 'حدث خطأ أثناء تسجيل الدخول'
+  }
 }
 </script>

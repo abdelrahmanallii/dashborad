@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { useUserStore } from '@/stores/Auth'
 import HomeView from '../views/HomeView.vue'
 import Login from '@/views/Login.vue'
+import Test from '@/views/test.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,12 @@ const router = createRouter({
       name: 'login',
       component: Login,
       meta: { requiresAuth: false }, // صفحة تسجيل الدخول لا تحتاج auth
+    },
+    {
+      path: '/test',
+      name: 'test',
+      component: Test,
+      meta: { requiresAuth: false }, // هذه الصفحة تحتاج تسجيل دخول
     },
   ],
 })
