@@ -1,11 +1,11 @@
 // تعريف العملات حسب البلد
 export const currencies: Record<string, { name: string; symbol: string; locale: string }> = {
   EG: { name: 'جنية', symbol: 'EGP', locale: 'ar-EG' },
-  SA: { name: 'ريال', symbol: 'SAR', locale: 'ar-SA' },
-  AE: { name: 'درهم', symbol: 'AED', locale: 'ar-AE' },
+  SAR: { name: 'ريال', symbol: 'SAR', locale: 'ar-SA' },
+  AED: { name: 'درهم', symbol: 'AED', locale: 'ar-AE' },
   US: { name: 'دولار', symbol: 'USD', locale: 'en-US' },
   EU: { name: 'يورو', symbol: 'EUR', locale: 'de-DE' },
-  GB: { name: 'جنيه', symbol: 'GBP', locale: 'en-GB' },
+  GB: { name: 'جنيه إسترليني', symbol: 'GBP', locale: 'en-GB' },
 }
 
 /**

@@ -61,7 +61,7 @@
        </span>
       </div>
       <div class="kt-menu-accordion gap-1 ps-[10px] relative before:absolute before:start-[20px] before:top-0 before:bottom-0 before:border-s before:border-border">
-       <div class="kt-menu-item" data-kt-menu-item-toggle="accordion" data-kt-menu-item-trigger="click">
+       <div class="kt-menu-item">
         <div class="kt-menu-link border border-transparent grow cursor-pointer gap-[14px] ps-[10px] pe-[10px] py-[8px]" tabindex="0">
          <span class="kt-menu-bullet flex w-[6px] -start-[3px] rtl:start-0 relative before:absolute before:top-0 before:size-[6px] before:rounded-full rtl:before:translate-x-1/2 before:-translate-y-1/2 kt-menu-item-active:before:bg-primary kt-menu-item-hover:before:bg-primary">
          </span>
@@ -3482,47 +3482,32 @@
 
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/Auth'
 import { useHomeData } from '@/api/HomeData'
 import { formatCurrency } from '@/utility/currency'
-
-
+const currentCountry = ref('EG')
 const router = useRouter()
 const userStore = useUserStore()
-
-
-// أو يمكن استخدام computed للحصول على بيانات المستخدم
 const userData = computed(() => userStore.user)
-
-// استدعاء useHomeData للحصول على البيانات والدوال
 const {
     homeData,
-    productsData,
     vendorWallet,
     products,
-    pagination,
-
   fetchAllData,
 } = useHomeData()
 
-// كود البلد الحالي (يمكن تغييره حسب الحاجة)
-const currentCountry = ref('EG')
 
-// جلب البيانات عند تحميل الصفحة
+
 onMounted(async () => {
-  // تحميل بيانات المستخدم من localStorage إذا كانت موجودة
-  const savedUser = userStore.getUser()
-  if (savedUser) {
-    userStore.setUser(savedUser)
+  const user = userStore.getUser()
+  if (user) {
+    userStore.setUser(user)
   }
-
   await fetchAllData()
 })
-
-// دالة تسجيل الخروج
 const handleLogout = () => {
   userStore.logout(router)
 }

@@ -139,13 +139,11 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { ref } from 'vue'
 import { RouterLink, useRouter } from 'vue-router'
-import { useUserStore } from '@/stores/Auth'
 import { useAuthData } from '@/api/AuthData'
 
-const userStore = useUserStore()
 const router = useRouter()
 const email = ref('')
 const password = ref('')
@@ -153,8 +151,7 @@ const emailTouched = ref(false)
 const passwordTouched = ref(false)
 const loginError = ref('')
 
-// استدعاء useAuthData للحصول على دالة Login وحالات loading و error
-const { Login, loading, error } = useAuthData()
+const { Login, loading } = useAuthData()
 
 const handleEmailFocus = () => {
   emailTouched.value = false
@@ -183,29 +180,18 @@ const showPasswordError = () => {
 }
 
 async function handleSubmit() {
-  // التحقق من صحة البيانات قبل الإرسال
   if (!email.value.trim() || !password.value.trim()) {
     emailTouched.value = true
     passwordTouched.value = true
     return
   }
-
-  // إعادة تعيين رسالة الخطأ
-  loginError.value = ''
-
-  // استدعاء دالة Login من AuthData - التوكن سيتم حفظه تلقائياً
   const result = await Login(email.value.trim(), password.value.trim() ,)
 
-  console.log(result)
   if (result.success) {
-    // في حالة النجاح، التوجه إلى الصفحة الرئيسية
-    // التوكن محفوظ بالفعل في الـ store من خلال AuthData
-
     router.push('/')
 
   } else {
-    // في حالة الفشل، عرض رسالة الخطأ
-    loginError.value = result.error || error.value || 'حدث خطأ أثناء تسجيل الدخول'
+    loginError.value = 'حدث خطأ أثناء تسجيل الدخول'
   }
 }
 </script>
